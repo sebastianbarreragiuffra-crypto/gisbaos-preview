@@ -2325,7 +2325,6 @@ body.home-page #cierre-gisba .closing-result { margin: 16px 96px 0 0; }
   .main-nav .button-small { padding-inline: 13px; }
   .brand-banner-link { width: 190px; }
   .brand img.header-brand-banner { width: 224px; height: auto; }
-  .nav-login { display: none; }
   .pulse-grid { grid-template-columns: minmax(0,.8fr) minmax(520px,1.2fr); gap: 42px; }
 }
 
@@ -2804,3 +2803,15 @@ details[open] > p { animation: faq-answer-in var(--motion-ui) var(--ease-gisba);
 .final-gisba-cta-visual .fg-node { justify-self: center; }
 @media (min-width: 981px) and (max-width: 1180px) { .final-gisba-cta-grid { grid-template-columns: minmax(0, 40fr) minmax(0, 60fr); gap: 32px; } .final-gisba-cta-visual { grid-template-columns: minmax(0, .8fr) 16px 54px 16px minmax(0, 1.3fr); } .final-gisba-cta-visual .fg-node { width: 54px; height: 54px; } .final-gisba-cta-visual .fg-link { width: 16px; } .fg-panel { padding: 16px; } }
 @media (max-width: 520px) { .final-gisba-cta-visual { grid-template-columns: minmax(0, 1fr); justify-items: center; } .final-gisba-cta-visual .fg-signals { grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; } .final-gisba-cta-visual .fg-link { width: 2px; height: 20px; background: linear-gradient(#C9BBFF, #5B2CFF); } .final-gisba-cta-visual .fg-panel { width: 100%; } }
+
+/* Navbar global: con 7 elementos, el menu responsive se activa desde 1180px (sin comprimir logo, tipografia ni gaps) */
+@media (max-width: 1180px) and (min-width: 781px) {
+  .site-header .menu-button { display: block; }
+  .site-header .main-nav, .home-page .main-nav, body:not(.home-page) .main-nav { position: absolute; top: 70px; left: 14px; right: 14px; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: 16px; border: 1px solid #e2e0ec; border-radius: 18px; background: rgba(255,255,255,.99); box-shadow: 0 20px 60px rgba(31,26,72,.14); font-size: .95rem; }
+  .site-header .main-nav.open { display: flex; }
+  .main-nav a, .home-page .main-nav a, body:not(.home-page) .main-nav a { padding: 13px; color: #15162e; }
+  .main-nav .button, .home-page .main-nav .button, body:not(.home-page) .main-nav .button { margin-top: 8px; color: #fff; justify-content: center; }
+  .main-nav .button-small { padding-inline: 18px; }
+  .brand-banner-link { width: 235px; }
+  .brand img.header-brand-banner { width: 270px; height: 90px; }
+}
