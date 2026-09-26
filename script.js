@@ -332,3 +332,11 @@ if (document.body.classList.contains('home-page')) {
 }
 
 document.querySelector('[data-year]').textContent = new Date().getFullYear();
+
+document.querySelectorAll("[data-final-cta]").forEach((cta) => {
+  if (reducedMotion || !("IntersectionObserver" in window)) { cta.classList.add("visible-fg"); return; }
+  const io = new IntersectionObserver((entries) => {
+    if (entries.some((e) => e.isIntersecting)) { cta.classList.add("visible-fg"); io.disconnect(); }
+  }, { threshold: 0.2 });
+  io.observe(cta);
+});
