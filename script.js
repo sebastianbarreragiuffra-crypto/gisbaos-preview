@@ -327,3 +327,17 @@ document.querySelectorAll("[data-final-cta]").forEach((cta) => {
   }, { threshold: 0.2 });
   io.observe(cta);
 });
+
+document.querySelectorAll('[data-hfaq]').forEach((list) => {
+  const items = [...list.querySelectorAll('.hfaq-item')];
+  const set = (item, open) => {
+    item.classList.toggle('is-open', open);
+    item.querySelector('.hfaq-trigger').setAttribute('aria-expanded', String(open));
+  };
+  items.forEach((item) => {
+    item.querySelector('.hfaq-trigger').addEventListener('click', () => {
+      const willOpen = !item.classList.contains('is-open');
+      items.forEach((other) => set(other, other === item && willOpen));
+    });
+  });
+});
