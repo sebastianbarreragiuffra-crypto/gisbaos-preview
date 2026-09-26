@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /propuesta-2.html
+
+Sitemap: https://gisba-marketing-chile.sebastianbarreragiuf.chatgpt.site/sitemap.xml

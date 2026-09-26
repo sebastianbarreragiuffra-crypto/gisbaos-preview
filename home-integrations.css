@@ -1,0 +1,20 @@
+/* Home: franja compacta de integraciones (entre Hero y GISBA Pulse). Hoja propia de index.html */
+.int-strip { padding: 18px 0 16px; border-block: 1px solid #eeecf7; background: linear-gradient(180deg, #fff, #faf9ff); scroll-margin-top: 84px; }
+.int-strip .container { display: grid; justify-items: center; gap: 9px; }
+.int-strip-label { margin: 0; color: #7a8097; font: 600 .72rem/1.3 Inter, "Segoe UI", Arial, sans-serif; letter-spacing: .14em; text-align: center; text-transform: uppercase; }
+.int-strip-list { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 12px 14px; margin: 0; padding: 0; list-style: none; }
+.int-strip-list li { display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px 7px 10px; border: 1px solid #ebe8f7; border-radius: 14px; background: #fff; }
+.int-strip-list img { width: 28px; height: 28px; object-fit: contain; }
+.int-strip-list strong { color: #111432; font: 600 .92rem/1.2 Inter, "Segoe UI", Arial, sans-serif; white-space: nowrap; }
+.int-strip-list small { padding: 3px 9px; border-radius: 999px; font: 600 .68rem/1.2 Inter, "Segoe UI", Arial, sans-serif; white-space: nowrap; }
+.int-strip-list .is-available { color: #087b48; background: #e6f7ee; }
+.int-strip-list .is-configurable { color: #5934e9; background: #efeaff; }
+.int-strip-note { margin: 0; color: #9aa0b5; font: 400 .74rem/1.3 Inter, "Segoe UI", Arial, sans-serif; }
+@media (max-width: 720px) {
+  .int-strip { padding: 22px 0 20px; }
+  .int-strip .container { justify-items: stretch; }
+  .int-strip-label, .int-strip-note { text-align: left; }
+  .int-strip-list { flex-wrap: nowrap; justify-content: flex-start; margin-inline: -14px; padding: 2px 14px 6px; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .int-strip-list::-webkit-scrollbar { display: none; }
+  .int-strip-list li { flex: 0 0 auto; scroll-snap-align: start; }
+}

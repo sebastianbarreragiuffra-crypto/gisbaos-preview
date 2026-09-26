@@ -1,0 +1,88 @@
+/* Producto: motion + depth final (2 momentos: Hero y GISBA Pulse). Hoja propia de servicios.html.
+   Progressive enhancement: los estados ocultos solo existen bajo .pr-seq, que añade JS. Sin JS todo queda visible. */
+.pr-page { --pm-ease: cubic-bezier(.2, .8, .2, 1); }
+
+/* ---------- Hero: indicador activo deslizante ---------- */
+.pr-seg { position: relative; isolation: isolate; }
+.pr-seg::before { content: ""; position: absolute; z-index: -1; top: 5px; bottom: 5px; left: 5px; width: calc((100% - 16px) / 2); border-radius: 14px; background: linear-gradient(135deg, #4d24ff, #7b4dff); box-shadow: 0 12px 26px rgba(77,36,255,.32); transition: transform .34s var(--pm-ease); will-change: transform; }
+.pr-seg[data-active="client"]::before { transform: translateX(calc(100% + 6px)); }
+.pr-seg-btn { position: relative; transition: color .22s ease, background .18s; }
+.pr-seg-btn.is-active, .pr-seg-btn.is-active:hover { background: transparent; box-shadow: none; }
+
+/* ---------- Hero: mismo sistema, otra perspectiva (~430 ms) ---------- */
+[data-pr-state].pr-out { opacity: 0; transform: translateY(-4px); transition: opacity .12s ease, transform .12s ease; }
+[data-pr-state].pr-in { animation: pmShell .3s var(--pm-ease) both; }
+[data-pr-state].pr-in .pr-main { animation: pmShell .3s var(--pm-ease) .1s both; }
+@keyframes pmShell { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* Escritorio (hero en dos columnas): ambas vistas comparten celda para que el texto y los tabs no salten al alternar */
+@media (min-width: 1181px) {
+  .pr-stage, .pr-tilt { display: grid; }
+  .pr-stage > .pr-tilt { min-width: 0; }
+  .pr-tilt > [data-pr-state] { grid-area: 1 / 1; align-self: start; min-width: 0; }
+  .pr-tilt > [data-pr-state][hidden] { display: block; visibility: hidden; pointer-events: none; }
+}
+
+/* ---------- Hero: halo detrás del dashboard ---------- */
+.pr-stage { position: relative; isolation: isolate; }
+.pr-stage::before { content: ""; position: absolute; z-index: -1; inset: -10% -6% -8% -10%; background: radial-gradient(ellipse 58% 52% at 54% 50%, rgba(123,77,255,.2), rgba(123,77,255,0) 72%); opacity: .85; pointer-events: none; }
+
+/* ---------- GISBA Pulse: narrativa secuencial (una sola vez, ~2,7 s) ---------- */
+.pr-pulse { isolation: isolate; overflow: hidden; }
+.pr-pulse::before { content: ""; position: absolute; z-index: -1; top: 14%; left: 50%; width: min(1100px, 96%); height: 62%; transform: translateX(-50%); background: radial-gradient(ellipse at center, rgba(123,77,255,.14), rgba(123,77,255,0) 68%); opacity: .75; pointer-events: none; }
+.pr-pulse.pr-seq .pr-arrow path { stroke-dasharray: 1; }
+
+.pr-pulse.pr-seq:not(.is-played) .pr-signal-wrap { opacity: 0; }
+.pr-pulse.pr-seq:not(.is-steps) :is(.pr-step, .pr-chip, .pr-why, .pr-link, .pr-recs li, .pr-decide) { opacity: 0; }
+.pr-pulse.pr-seq:not(.is-steps) .pr-arrow path { stroke-dashoffset: 1; }
+.pr-pulse.pr-seq:not(.is-steps) .pr-bars i { transform: scaleY(0); }
+
+.pr-pulse.pr-seq.is-played::before { animation: pmHalo 1.6s ease-out both; }
+.pr-pulse.pr-seq.is-played .pr-signal-wrap { animation: pmSeq .4s var(--pm-ease) both; }
+.pr-pulse.pr-seq.is-played .pr-spark { animation: pmSpark .55s ease-out .35s both; }
+.pr-pulse.pr-seq.is-steps .pr-step:nth-child(1) { animation: pmSeq .4s var(--pm-ease) .45s both; }
+.pr-pulse.pr-seq.is-steps .pr-step:nth-child(1) .pr-chip { animation: pmSeq .35s var(--pm-ease) .6s both; }
+.pr-pulse.pr-seq.is-steps .pr-arrow:nth-child(2) path { animation: pmDraw .3s ease-out .9s both; }
+.pr-pulse.pr-seq.is-steps .pr-step:nth-child(3) { animation: pmSeq .4s var(--pm-ease) 1.1s both; }
+.pr-pulse.pr-seq.is-steps .pr-why { animation: pmSeq .35s var(--pm-ease) 1.25s both; }
+.pr-pulse.pr-seq.is-steps .pr-bars i { transform-origin: bottom; animation: pmBar .4s var(--pm-ease) both; }
+.pr-pulse.pr-seq.is-steps .pr-bars i:nth-child(1) { animation-delay: 1.3s; }
+.pr-pulse.pr-seq.is-steps .pr-bars i:nth-child(2) { animation-delay: 1.36s; }
+.pr-pulse.pr-seq.is-steps .pr-bars i:nth-child(3) { animation-delay: 1.42s; }
+.pr-pulse.pr-seq.is-steps .pr-link { animation: pmSeq .35s var(--pm-ease) 1.5s both; }
+.pr-pulse.pr-seq.is-steps .pr-arrow:nth-child(4) path { animation: pmDraw .3s ease-out 1.6s both; }
+.pr-pulse.pr-seq.is-steps .pr-step:nth-child(5) { animation: pmSeq .4s var(--pm-ease) 1.8s both; }
+.pr-pulse.pr-seq.is-steps .pr-recs li { animation: pmSeq .35s var(--pm-ease) both; }
+.pr-pulse.pr-seq.is-steps .pr-recs li:nth-child(1) { animation-delay: 1.95s; }
+.pr-pulse.pr-seq.is-steps .pr-recs li:nth-child(2) { animation-delay: 2.05s; }
+.pr-pulse.pr-seq.is-steps .pr-recs li:nth-child(3) { animation-delay: 2.15s; }
+.pr-pulse.pr-seq.is-steps .pr-decide { animation: pmSeq .4s var(--pm-ease) 2.35s both; }
+
+@keyframes pmSeq { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes pmBar { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes pmDraw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+@keyframes pmSpark { 0%, 100% { transform: scale(1); } 45% { transform: scale(1.16); box-shadow: 0 0 0 6px rgba(123,77,255,.14); } }
+@keyframes pmHalo { 0% { opacity: .5; } 40% { opacity: 1; } 100% { opacity: .8; } }
+@keyframes pmIn5 { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+
+/* ---------- Móvil: motion simplificado ---------- */
+@media (max-width: 640px) {
+  [data-pr-state].pr-out { transform: none; }
+  [data-pr-state].pr-in { animation: pmIn5 .28s var(--pm-ease) both; }
+  [data-pr-state].pr-in .pr-main { animation: none; }
+  .pr-stage::before { inset: -4% -2% -3% -2%; opacity: .6; }
+  .pr-pulse::before { opacity: .5; height: 44%; }
+  .pr-pulse.pr-seq.is-played::before { animation: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pr-seg::before,
+  .pr-seg-btn,
+  [data-pr-state].pr-out {
+    transition: none;
+  }
+
+  [data-pr-state].pr-in,
+  [data-pr-state].pr-in * {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,65 @@
+/* Home: sección "Cada negocio tiene un funnel distinto" (selector Ecommerce / Lead Generation). Hoja propia de index.html */
+.hf { padding: 96px 0 104px; background: linear-gradient(180deg, #fff 0%, #f8f7ff 100%); }
+.hf::before { display: none; }
+.hf-grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.6fr); column-gap: 48px; align-items: center; }
+.hf-eyebrow { margin: 0 0 20px; color: #5B2CFF; font-size: .82rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+.hf-copy h2 { margin: 0 0 22px; font-size: clamp(2.3rem, 3.8vw, 3.5rem); line-height: 1.05; color: #0B1028; }
+.hf-copy h2 span { color: #5B2CFF; }
+.hf-lead { margin: 0 0 34px; max-width: 420px; color: #5F687A; font-size: 1.1rem; line-height: 1.55; }
+.hf-switch { display: grid; gap: 12px; padding: 0; border: 0; border-radius: 0; background: none; box-shadow: none; max-width: 360px; }
+.hf-switch::before { content: none; }
+.hf-switch button { display: flex; align-items: center; justify-content: center; gap: 12px; width: 100%; min-height: 62px; border: 1px solid #e6e2f7; border-radius: 16px; color: #5F687A; background: #fff; font: 600 1.05rem/1 Inter, "Segoe UI", Arial, sans-serif; box-shadow: 0 6px 18px rgba(42,38,90,.05); transition: background .25s ease, color .25s ease, border-color .25s ease, box-shadow .25s ease; }
+.hf-switch button:hover { transform: none; border-color: #cfc4ff; }
+.hf-switch button.is-active { color: #5B2CFF; border: 2px solid #c9bcff; background: #f1edff; box-shadow: 0 10px 26px rgba(91,44,255,.14); }
+.hf-visual { min-width: 0; }
+.hf-panel { border: 0; border-radius: 0; background: none; box-shadow: none; overflow: visible; }
+.hf-panel img { width: 100%; height: auto; border-radius: 22px; box-shadow: 0 30px 70px rgba(48,35,111,.14); }
+@media (max-width: 1024px) {
+  .hf { padding: 72px 0 80px; }
+  .hf-grid { grid-template-columns: 1fr; row-gap: 36px; }
+  .hf-lead { max-width: 560px; }
+  .hf-switch { grid-template-columns: 1fr 1fr; max-width: 560px; }
+}
+.hf-m { display: none; }
+@media (max-width: 640px) {
+  .hf-panel > img { display: none; }
+  .hf-m { display: grid; gap: 10px; padding: 12px; border: 1px solid #e9e5fb; border-radius: 20px; background: #fff; box-shadow: 0 20px 44px rgba(48,35,111,.12); font-family: Inter, "Segoe UI", Arial, sans-serif; color: #0B1028; }
+  .hf-m strong { display: block; font-weight: 600; }
+  .hf-m small { display: block; color: #7a84a5; font-size: .72rem; line-height: 1.3; }
+  .hf-m-acct { display: flex; align-items: center; gap: 10px; }
+  .hf-m-acct strong { font: 600 1.05rem/1.2 Manrope, "Segoe UI", Arial, sans-serif; }
+  .hf-m-logo { flex: none; width: 40px; height: 40px; display: grid; place-items: center; border-radius: 10px; color: #fff; background: #0B1028; font: 600 1.15rem/1 Manrope, "Segoe UI", Arial, sans-serif; }
+  .hf-m-kpis { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .hf-m-kpis > div { padding: 10px 12px; border: 1px solid #eee9fb; border-radius: 12px; background: #fbfaff; }
+  .hf-m-kpis strong { margin: 2px 0; font-size: 1.25rem; letter-spacing: -.02em; }
+  .hf-m-kpis em { font-style: normal; font-size: .74rem; font-weight: 600; }
+  .hf-m-kpis .up { color: #1f9d55; }
+  .hf-m-kpis .dn { color: #1f9d55; }
+  .hf-m-card { padding: 12px; border: 1px solid #eee9fb; border-radius: 14px; }
+  .hf-m-card h4 { margin: 0 0 8px; font-size: .88rem; font-weight: 600; }
+  .hf-m-legend { display: flex; align-items: center; gap: 6px; margin: 0 0 10px; color: #6a7394; font-size: .7rem; }
+  .hf-m-legend i { width: 9px; height: 9px; border-radius: 50%; background: #5B2CFF; }
+  .hf-m-legend i.l { margin-left: 8px; background: #c9bcff; }
+  .hf-m-bars { display: grid; grid-template-columns: repeat(5, 1fr); align-items: end; gap: 6px; height: 108px; padding-bottom: 18px; border-bottom: 1px solid #eee9fb; }
+  .hf-m-bars > div { position: relative; display: flex; align-items: flex-end; justify-content: center; gap: 3px; height: 100%; }
+  .hf-m-bars .b1, .hf-m-bars .b2 { width: 34%; max-width: 16px; border-radius: 3px 3px 0 0; }
+  .hf-m-bars .b1 { background: #5B2CFF; }
+  .hf-m-bars .b2 { background: #c9bcff; }
+  .hf-m-bars small { position: absolute; left: 50%; bottom: -18px; transform: translateX(-50%); font-size: .58rem; white-space: nowrap; }
+  .hf-m-fun { display: grid; gap: 10px; margin: 0; padding: 0; list-style: none; }
+  .hf-m-fun li { display: grid; grid-template-columns: minmax(0, 1fr) 44px; grid-template-areas: "n p" "t p"; align-items: center; gap: 4px 10px; }
+  .hf-m-fun li > div:first-child { grid-area: n; display: flex; justify-content: space-between; gap: 8px; font-size: .78rem; }
+  .hf-m-fun li > div:first-child b { font-weight: 600; }
+  .hf-m-fun .t { grid-area: t; height: 8px; border-radius: 999px; background: #eeeaf9; }
+  .hf-m-fun .t i { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, #5B2CFF, #8a5cff); }
+  .hf-m-fun em { grid-area: p; font-style: normal; font-size: .78rem; color: #4b5578; text-align: right; }
+  .hf-m-insight { display: flex; align-items: flex-start; gap: 10px; margin: 0; padding: 12px; border-radius: 14px; background: #f3efff; font-size: .8rem; line-height: 1.4; color: #3a4166; }
+  .hf-m-insight > span:first-child { flex: none; width: 34px; height: 34px; display: grid; place-items: center; border-radius: 10px; color: #b9770e; background: #fff1d6; }
+  .hf-m-insight strong { margin-bottom: 2px; color: #0B1028; }
+}
+@media (max-width: 560px) {
+  .hf { padding: 56px 0 64px; }
+  .hf-switch { gap: 8px; }
+  .hf-switch button { min-height: 54px; gap: 8px; font-size: .92rem; border-radius: 14px; }
+  .hf-switch button svg { width: 18px; height: 18px; }
+}

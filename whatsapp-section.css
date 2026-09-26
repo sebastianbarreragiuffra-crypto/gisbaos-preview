@@ -1,0 +1,108 @@
+/* Visual aprobado de WhatsApp V2: mostrar el asset completo en escritorio. */
+.whatsapp-approved {
+  overflow: hidden;
+  padding: 72px 0;
+  background: #fff;
+}
+
+.whatsapp-approved-shell {
+  position: relative;
+}
+
+.whatsapp-mobile-copy {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.whatsapp-approved-visual {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(91,55,255,.12);
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 28px 70px rgba(50,34,126,.12);
+}
+
+.whatsapp-approved-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  image-rendering: auto;
+}
+
+@media (max-width: 780px) {
+  body.home-page #cierre-gisba.whatsapp-approved {
+    padding: 32px 0;
+  }
+
+  .whatsapp-approved-shell {
+    width: min(calc(100% - 28px),680px);
+  }
+
+  .whatsapp-mobile-copy {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0 0 32px;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  .whatsapp-mobile-copy .eyebrow {
+    margin: 0 0 14px;
+    color: #4d24ff;
+  }
+
+  .whatsapp-mobile-copy h2 {
+    margin: 0;
+    color: #090b26;
+    font-size: clamp(2.15rem,10.4vw,3.15rem);
+    line-height: 1.03;
+    letter-spacing: -.055em;
+  }
+
+  .whatsapp-mobile-copy > p:not(.eyebrow) {
+    margin: 18px 0 0;
+    color: #5d6a91;
+    font-size: .96rem;
+    line-height: 1.55;
+  }
+
+  .whatsapp-approved-visual {
+    border-radius: 18px;
+  }
+
+}
+
+@media (max-width: 430px) {
+  body.home-page #cierre-gisba.whatsapp-approved {
+    padding: 32px 0;
+  }
+
+  .whatsapp-approved-visual {
+    height: 590px;
+    border-radius: 14px;
+  }
+
+  .whatsapp-approved-visual img {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    width: 1550px;
+    max-width: none;
+    height: auto;
+    transform: translateX(-690px);
+  }
+}
