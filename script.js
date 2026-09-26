@@ -10,6 +10,11 @@ if (DEMO_BOOKING_URL) {
 }
 if (LOGIN_URL) {
   document.querySelectorAll('[data-cta="login"]').forEach((el) => { el.href = LOGIN_URL; });
+} else {
+  /* Sin URL definida: el enlace se mantiene visible pero no navega ni mueve la pagina. */
+  document.querySelectorAll('[data-cta="login"]').forEach((el) => {
+    el.addEventListener('click', (event) => event.preventDefault());
+  });
 }
 
 const header = document.querySelector('[data-header]');
