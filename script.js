@@ -82,12 +82,18 @@ document.addEventListener('click', (event) => {
 
 document.addEventListener('keydown', (event) => {
   if (event.key !== 'Escape') return;
+  const menuWasOpen = menu?.classList.contains('open');
   navDropdowns.forEach((dropdown) => {
     dropdown.classList.remove('open');
     const toggle = dropdown.querySelector('.nav-dropdown-toggle');
     toggle?.setAttribute('aria-expanded', 'false');
-    toggle?.focus();
+    if (!menuWasOpen) toggle?.focus();
   });
+  if (menuWasOpen) {
+    menu.classList.remove('open');
+    menuButton?.setAttribute('aria-expanded', 'false');
+    menuButton?.focus();
+  }
 });
 
 menu?.querySelectorAll('a').forEach((link) => {
