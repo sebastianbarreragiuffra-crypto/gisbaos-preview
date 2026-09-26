@@ -6,7 +6,7 @@
 const DEMO_BOOKING_URL = null; // null = conserva el href actual (#contacto). Reemplazar por la URL del proveedor de booking cuando este definido.
 const LOGIN_URL = null; // null = conserva el href actual (#). Reemplazar por la URL final de la app/login cuando este definida.
 if (DEMO_BOOKING_URL) {
-  document.querySelectorAll('a[data-cta="demo"]').forEach((el) => { el.href = DEMO_BOOKING_URL; });
+  document.querySelectorAll('[data-cta="demo"]').forEach((el) => { el.href = DEMO_BOOKING_URL; });
 }
 if (LOGIN_URL) {
   document.querySelectorAll('[data-cta="login"]').forEach((el) => { el.href = LOGIN_URL; });
@@ -117,9 +117,6 @@ if (reducedMotion || !('IntersectionObserver' in window)) {
   });
 }
 
-// El marcador temprano ya ocultó los reveals antes del primer paint; cancela su fail-safe.
-window.clearTimeout(window.__gisbaRevealFallback);
-
 document.querySelectorAll('details').forEach((detail) => {
   detail.addEventListener('toggle', () => {
     if (!detail.open) return;
@@ -132,14 +129,8 @@ document.querySelectorAll('details').forEach((detail) => {
 const form = document.querySelector('[data-contact-form]');
 const result = document.querySelector('[data-form-result]');
 
-if (DEMO_BOOKING_URL) form?.setAttribute('novalidate', '');
-
 form?.addEventListener('submit', async (event) => {
   event.preventDefault();
-  if (DEMO_BOOKING_URL) {
-    window.location.assign(DEMO_BOOKING_URL);
-    return;
-  }
   if (!form.reportValidity()) return;
 
   const data = new FormData(form);
@@ -172,22 +163,20 @@ form?.querySelectorAll('input[name="interes"]').forEach((input) => {
   input.addEventListener('change', () => form.querySelector('input[name="interes"]')?.setCustomValidity(''));
 });
 
-const productStory = document.querySelector('[data-product-story]');
+/* "Así lo ve tu cliente": navegacion manual entre las 4 vistas, sin autoplay */
+const clientStoryTabs = document.querySelector('.client-story-tabs');
+const clientStoryStage = document.querySelector('.client-story-stage[data-product-story]');
 
-if (productStory) {
-  const tabs = [...productStory.querySelectorAll('[data-story-tab]')];
-  const panels = [...productStory.querySelectorAll('[data-story-panel]')];
-  const storyStage = productStory.querySelector('.client-story-stage');
-  let activeIndex = 0;
+if (clientStoryTabs && clientStoryStage) {
+  const tabs = [...clientStoryTabs.querySelectorAll('[data-story-tab]')];
+  const panels = [...clientStoryStage.querySelectorAll('[data-story-panel]')];
 
-  const showStory = (index, moveFocus = false) => {
-    activeIndex = index;
+  const showStory = (index) => {
     tabs.forEach((tab, tabIndex) => {
       const isActive = tabIndex === index;
       tab.classList.toggle('active', isActive);
       tab.setAttribute('aria-selected', String(isActive));
       tab.tabIndex = isActive ? 0 : -1;
-      if (isActive && moveFocus) tab.focus();
     });
     panels.forEach((panel, panelIndex) => {
       const isActive = panelIndex === index;
@@ -204,7 +193,6 @@ if (productStory) {
         panel.classList.remove('active', 'entering');
       }
     });
-    storyStage?.classList.toggle('is-wide', index >= 2);
   };
 
   tabs.forEach((tab, index) => {
@@ -217,7 +205,8 @@ if (productStory) {
       else if (event.key === 'End') nextIndex = tabs.length - 1;
       else return;
       event.preventDefault();
-      showStory(nextIndex, true);
+      showStory(nextIndex);
+      tabs[nextIndex].focus();
     });
   });
 }
