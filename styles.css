@@ -2828,3 +2828,5 @@ details[open] > p { animation: faq-answer-in var(--motion-ui) var(--ease-gisba);
   .closing-footer-cta .button { width: 100%; justify-content: center; }
   .closing-links a { padding: 6px 0; }
 }
+@media (max-width: 780px) and (min-width: 521px) { .closing-links { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; } }
+@media (max-width: 520px) { .closing-links { gap: 22px; } .closing-footer-bottom { gap: 26px; } }
