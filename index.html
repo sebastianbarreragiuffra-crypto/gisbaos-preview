@@ -21,14 +21,14 @@
   <link rel="preload" href="assets/fonts/manrope-variable.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="assets/fonts/inter-400.ttf" as="font" type="font/ttf" crossorigin>
   <script>document.documentElement.classList.add("js")</script>
-  <link rel="stylesheet" href="styles.css?v=50c4c0a5">
+  <link rel="stylesheet" href="styles.css?v=ae1f058e">
   <link rel="stylesheet" href="whatsapp-section.css?v=da2960e0">
   <link rel="stylesheet" href="home-hero.css?v=5c15818e">
   <link rel="stylesheet" href="home-pulse.css?v=f5449b9e">
   <link rel="stylesheet" href="home-funnel.css?v=1a56805b">
   <link rel="stylesheet" href="home-integrations.css?v=ff3cf196">
   <link rel="stylesheet" href="home-how.css?v=0cfad1ad">
-  <script src="script.js?v=603a14ec" defer></script>
+  <script src="script.js?v=b31bd124" defer></script>
 </head>
 <body class="home-page">
   <svg class="shape-defs" aria-hidden="true" focusable="false">
@@ -615,20 +615,24 @@
       </div>
     </section>
 
-    <section id="contacto" class="section contact" aria-labelledby="contact-title">
+    <section id="contacto" class="section contact contact-final" aria-labelledby="contact-title">
       <div class="container contact-shell reveal">
         <span id="precios" class="section-anchor" aria-hidden="true"></span>
         <div class="contact-copy">
           <p class="eyebrow"><span></span> Próximo paso</p>
-          <h2 id="contact-title">Gestiona más clientes sin multiplicar la complejidad.</h2>
-          <p>Descubre cómo GISBA conecta campañas, decisiones, equipo y clientes en una sola operación.</p>
+          <h2 id="contact-title">Mira GISBA aplicado a tu agencia.</h2>
+          <p class="contact-lead">En una demo revisamos cómo hoy gestionas clientes, campañas y decisiones, y te mostramos cómo GISBA puede conectar ese flujo en un solo contexto.</p>
+          <ul class="contact-perks">
+            <li><span class="contact-perk-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="10" cy="7" r="3.2"/><path d="M4 16.5c.8-3 3.3-4.5 6-4.5s5.2 1.5 6 4.5"/></svg></span>Demo adaptada a tu agencia</li>
+            <li><span class="contact-perk-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><rect x="3.5" y="10" width="3.2" height="6.5" rx="1"/><rect x="8.4" y="6" width="3.2" height="10.5" rx="1"/><rect x="13.3" y="3" width="3.2" height="13.5" rx="1"/></svg></span>Revisamos tu flujo actual</li>
+            <li><span class="contact-perk-icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 10.5 3.5 3.5 7.5-8"/></svg></span>Sin compromiso</li>
+          </ul>
         </div>
         <form class="contact-form" data-contact-form data-form-event="demo_form_submit" data-form-start-event="demo_form_start" data-form-success-event="demo_success">
-          <div class="form-row">
-            <label>Nombre<input name="nombre" autocomplete="name" required placeholder="Tu nombre"></label>
-            <label>Correo<input type="email" name="correo" autocomplete="email" required placeholder="nombre@empresa.cl"></label>
-          </div>
-          <label><span class="field-label">¿Cuántos clientes activos gestiona tu agencia? <small class="optional-label">(opcional)</small></span>
+          <h3 class="contact-form-title">Agenda una demo</h3>
+          <label><span class="field-label">Nombre</span><input name="nombre" autocomplete="name" required placeholder="Tu nombre"></label>
+          <label><span class="field-label">Correo de trabajo</span><input type="email" name="correo" autocomplete="email" required placeholder="tu@agencia.cl"></label>
+          <label><span class="field-label">¿Cuántos clientes gestiona tu agencia? <small class="optional-label">Opcional</small></span>
             <select name="clientes">
               <option value="">Selecciona una opción</option>
               <option>Estoy comenzando</option>
@@ -638,21 +642,9 @@
               <option>Más de 30 clientes</option>
             </select>
           </label>
-          <fieldset class="interest-fieldset" aria-describedby="interest-help">
-              <legend>¿Qué quieres mejorar en tu agencia?</legend>
-              <p id="interest-help">Selecciona una o más opciones.</p>
-              <div class="interest-options">
-                <label class="interest-option"><input type="checkbox" name="interes" value="Centralizar clientes y campañas"><span>Centralizar clientes y campañas</span></label>
-                <label class="interest-option"><input type="checkbox" name="interes" value="Optimizar seguimiento y decisiones"><span>Optimizar seguimiento y decisiones</span></label>
-                <label class="interest-option"><input type="checkbox" name="interes" value="Demostrar resultados a clientes"><span>Demostrar resultados a clientes</span></label>
-                <label class="interest-option"><input type="checkbox" name="interes" value="Escalar con el mismo equipo"><span>Escalar con el mismo equipo</span></label>
-                <label class="interest-option"><input type="checkbox" name="interes" value="Conocer GISBA OS"><span>Conocer GISBA OS</span></label>
-              </div>
-            </fieldset>
-            <label><span class="field-label">Comentarios adicionales <small class="optional-label">(opcional)</small></span><textarea name="mensaje" rows="4" placeholder="Cuéntanos cualquier detalle que debamos conocer"></textarea></label>
+          <label><span class="field-label">¿Hay algo que quieras revisar en la demo? <small class="optional-label">Opcional</small></span><textarea name="mensaje" rows="3" placeholder="Cuéntanos brevemente..."></textarea></label>
           <button class="button button-solid" type="submit" data-cta="demo" data-event="demo_cta_click" data-location="final">Agenda una demo <span aria-hidden="true">→</span></button>
-          <p class="form-note">La primera conversación es para entender tu escenario y definir si podemos ayudarte.</p>
-          <p class="form-direct-contact">Si tu aplicación de correo no se abre, escribe directamente a <a href="mailto:contacto@gisbaos.cl">contacto@gisbaos.cl</a>.</p>
+          <p class="form-note">Usaremos tus datos solo para coordinar la demo.</p>
           <div class="form-result" role="status" aria-live="polite" data-form-result hidden></div>
         </form>
       </div>

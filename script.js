@@ -143,33 +143,20 @@ form?.addEventListener('submit', async (event) => {
   if (!form.reportValidity()) return;
 
   const data = new FormData(form);
-  const interests = data.getAll('interes');
-  const firstInterest = form.querySelector('input[name="interes"]');
-  if (!interests.length) {
-    firstInterest?.setCustomValidity('Selecciona al menos una opción.');
-    firstInterest?.reportValidity();
-    return;
-  }
-  firstInterest?.setCustomValidity('');
   const request = [
     'Solicitud desde la web de GISBA',
     `Nombre: ${data.get('nombre')}`,
     `Correo: ${data.get('correo')}`,
     `Clientes activos: ${data.get('clientes') || 'No indicado'}`,
-    `Intereses: ${interests.join(', ')}`,
     `Contexto: ${data.get('mensaje') || 'Sin detalles adicionales'}`
   ].join('\n');
 
   const subject = 'Solicitud de demo de GISBA OS';
   const destination = `mailto:contacto@gisbaos.cl?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(request)}`;
 
-  result.textContent = 'Abriendo tu aplicación de correo para enviar la solicitud a GISBA.';
+  result.innerHTML = 'Abriendo tu aplicación de correo. Si no se abre, escribe a <a href="mailto:contacto@gisbaos.cl">contacto@gisbaos.cl</a>.';
   result.hidden = false;
   window.location.href = destination;
-});
-
-form?.querySelectorAll('input[name="interes"]').forEach((input) => {
-  input.addEventListener('change', () => form.querySelector('input[name="interes"]')?.setCustomValidity(''));
 });
 
 /* "Así lo ve tu cliente": navegacion manual entre las 4 vistas, sin autoplay */
