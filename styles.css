@@ -2737,3 +2737,23 @@ details[open] > p { animation: faq-answer-in var(--motion-ui) var(--ease-gisba);
   .fg-signal { padding: 10px; }
   .fg-signal span, .fg-analyzed-title, .fg-analyzed { display: none; }
 }
+
+/* FAQ Home: accordion accesible, cerrado al cargar, una abierta a la vez */
+.landing-faq .hfaq { display: grid; gap: 12px; border-top: 0; }
+.hfaq-item { border: 1px solid #E4DEFA; border-radius: 14px; background: #fff; box-shadow: 0 6px 20px rgba(11,16,40,.04); transition: border-color .2s ease, background-color .2s ease; }
+.hfaq-item.is-open { border-color: #C9BBFF; background: #FBFAFF; }
+.hfaq-item h3 { margin: 0; font: inherit; }
+.hfaq-trigger { display: flex; align-items: center; justify-content: space-between; gap: 20px; width: 100%; padding: 22px 26px; border: 0; background: transparent; color: #0B1028; font: 600 1.06rem/1.35 var(--font-display, "Manrope", sans-serif); text-align: left; cursor: pointer; border-radius: 14px; }
+.hfaq-trigger:focus-visible { outline: 2px solid #5B2CFF; outline-offset: 2px; }
+.hfaq-icon { position: relative; flex: 0 0 16px; width: 16px; height: 16px; }
+.hfaq-icon::before, .hfaq-icon::after { content: ""; position: absolute; left: 0; top: 50%; width: 16px; height: 2px; margin-top: -1px; background: #0B1028; border-radius: 2px; transition: transform .2s ease, opacity .2s ease; }
+.hfaq-icon::after { transform: rotate(90deg); }
+.hfaq-item.is-open .hfaq-icon::before, .hfaq-item.is-open .hfaq-icon::after { background: #5B2CFF; }
+.hfaq-item.is-open .hfaq-icon::after { transform: rotate(0); opacity: 0; }
+.hfaq-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .22s ease; }
+.hfaq-panel > div { overflow: hidden; min-height: 0; }
+.hfaq-item.is-open .hfaq-panel { grid-template-rows: 1fr; }
+.hfaq-panel p { margin: 0; padding: 0 26px 24px; color: #5F687A; font-size: 1rem; line-height: 1.65; }
+.hfaq-item:not(.is-open) .hfaq-panel { visibility: hidden; transition: grid-template-rows .22s ease, visibility 0s .22s; }
+@media (prefers-reduced-motion: reduce) { .hfaq-panel, .hfaq-icon::before, .hfaq-icon::after, .hfaq-item { transition: none !important; } }
+@media (max-width: 520px) { .hfaq-trigger { padding: 18px 18px; font-size: 1rem; } .hfaq-panel p { padding: 0 18px 20px; } }
