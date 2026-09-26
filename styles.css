@@ -2815,3 +2815,16 @@ details[open] > p { animation: faq-answer-in var(--motion-ui) var(--ease-gisba);
   .brand-banner-link { width: 235px; }
   .brand img.header-brand-banner { width: 270px; height: 90px; }
 }
+
+/* Footer global: CTA de demo separado de las columnas */
+.closing-footer-cta { grid-column: 2; grid-row: 2; align-self: center; justify-self: end; }
+.closing-copyright { grid-row: 2; align-self: center; }
+.closing-links a[data-cta="login"] { cursor: pointer; }
+@media (max-width: 1040px) {
+  .closing-footer-cta, .closing-copyright { grid-column: 1; grid-row: auto; justify-self: start; }
+}
+@media (max-width: 520px) {
+  .closing-footer-cta { justify-self: stretch; }
+  .closing-footer-cta .button { width: 100%; justify-content: center; }
+  .closing-links a { padding: 6px 0; }
+}
