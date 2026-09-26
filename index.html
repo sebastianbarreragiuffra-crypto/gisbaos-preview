@@ -20,15 +20,15 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%23080712'/%3E%3Cpath d='M15 43 31 13c2-4 7-4 10 0l9 17c3 6-1 13-8 13H15Zm11-5h16c2 0 3-2 2-4l-7-14c-1-2-3-2-4 0Z' fill='%238a5cff'/%3E%3C/svg%3E">
   <link rel="preload" href="assets/fonts/manrope-variable.ttf" as="font" type="font/ttf" crossorigin>
   <link rel="preload" href="assets/fonts/inter-400.ttf" as="font" type="font/ttf" crossorigin>
-  <script>document.documentElement.classList.add("js")</script>
-  <link rel="stylesheet" href="styles.css?v=d49f76d8">
+  <script>document.documentElement.classList.add("js");window.__gisbaRevealFallback=window.setTimeout(function(){document.documentElement.classList.remove("js")},4000)</script>
+  <link rel="stylesheet" href="styles.css?v=00465cd2">
   <link rel="stylesheet" href="whatsapp-section.css?v=da2960e0">
   <link rel="stylesheet" href="home-hero.css?v=5c15818e">
   <link rel="stylesheet" href="home-pulse.css?v=f5449b9e">
   <link rel="stylesheet" href="home-funnel.css?v=1a56805b">
   <link rel="stylesheet" href="home-integrations.css?v=ff3cf196">
   <link rel="stylesheet" href="home-how.css?v=0cfad1ad">
-  <script src="script.js?v=71481e3a" defer></script>
+  <script src="script.js?v=092a29fa" defer onerror="clearTimeout(window.__gisbaRevealFallback);document.documentElement.classList.remove('js')"></script>
 </head>
 <body class="home-page">
   <svg class="shape-defs" aria-hidden="true" focusable="false">
@@ -359,7 +359,6 @@
                 </main>
               </div>
             </div>
-
             <!-- 02 ACCIONES -->
             <div id="client-panel-acciones" class="capp" role="tabpanel" aria-labelledby="client-tab-acciones" data-story-panel="1" hidden>
               <div class="capp-topbar">
@@ -532,9 +531,6 @@
       </div>
     </section>
 
-  </main>
-
-  <footer class="site-footer closing-footer">
     <!-- TESTIMONIOS DESACTIVADOS (fuera del DOM publico): NEXA Digital, Bruma Creative Studio y ALTA Agencia Digital son SIMULACIONES, no clientes reales.
          Para reactivar: reemplazar los tres por testimonios verificados, quitar el aviso ilustrativo y descomentar la seccion (usa .landing-testimonials en styles.css). Ver AGENTS.md > Testimonios.
     <section id="testimonios" class="section landing-testimonials" aria-labelledby="testimonials-title">
@@ -662,15 +658,17 @@
       </div>
     </section>
 
+  </main>
+
+  <footer class="site-footer closing-footer">
     <div class="container closing-footer-bottom">
       <div class="closing-brand">
         <a class="closing-brand-lockup" href="index.html" aria-label="GISBA OS, ir al inicio"><img src="assets/gisba-os-brand-banner-v6.png" width="2172" height="724" alt="GISBA OS"></a>
         <p>El sistema operativo para agencias que quieren escalar con más control.</p>
       </div>
       <nav class="closing-links" aria-label="Enlaces del pie de página">
-        <div><strong>Producto</strong><a href="index.html#gisba-pulse">GISBA Pulse</a><a href="index.html#como-funciona">Cómo funciona</a><a href="index.html#experiencia-cliente">Portal del cliente</a><a href="index.html#contacto">Agenda una demo</a></div>
-        <div><strong>Empresa</strong><a href="servicios.html">Servicios</a><a href="como-trabajamos.html">Cómo trabajamos</a><a href="nosotros.html">Nosotros</a><a href="index.html#contacto">Contacto</a></div>
-        <div><strong>Recursos</strong><a href="index.html#faq">Preguntas frecuentes</a><a href="preguntas.html">Todas las preguntas</a><a href="servicios.html">GISBA OS</a><a href="index.html#integraciones">Integraciones</a></div>
+        <div><strong>Producto</strong><a href="servicios.html">Producto</a><a href="como-trabajamos.html">Cómo funciona</a><a href="precios.html">Precios</a><a href="index.html#experiencia-cliente">Experiencia del cliente</a></div>
+        <div><strong>Empresa</strong><a href="nosotros.html">Nosotros</a><a href="preguntas.html">Preguntas frecuentes</a><a href="index.html#contacto">Contacto</a><a href="index.html#contacto" data-cta="demo" data-event="demo_cta_click" data-location="footer">Solicitar demo</a></div>
       </nav>
       <p class="closing-copyright">© <span data-year></span> GISBA OS. Todos los derechos reservados.</p>
     </div>

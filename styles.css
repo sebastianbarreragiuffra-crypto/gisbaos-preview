@@ -2513,7 +2513,7 @@ details[open] > p { animation: faq-answer-in var(--motion-ui) var(--ease-gisba);
 .pricing-card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; font-size: .95rem; }
 .pricing-card li::before { content: "✓"; margin-right: 8px; color: var(--violet); font-weight: 600; }
 .pricing-card .button { margin: 6px 0 14px; }
-.pricing-table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 22px; background: #fff; }
+.pricing-table-wrap { position: relative; overflow-x: auto; border: 1px solid var(--line); border-radius: 22px; background: #fff; }
 .pricing-table { width: 100%; min-width: 620px; border-collapse: collapse; font-size: .95rem; }
 .pricing-table th, .pricing-table td { padding: 16px 22px; text-align: left; border-bottom: 1px solid var(--line); }
 .pricing-table thead th { font-family: var(--font-display); font-weight: 600; background: var(--surface-strong); }
