@@ -2788,3 +2788,19 @@ details[open] > p { animation: faq-answer-in var(--motion-ui) var(--ease-gisba);
   .home-page .contact-final .contact-form { padding: 24px 18px; }
   .contact-form-title { font-size: 1.45rem; }
 }
+
+/* CTA final: flujo horizontal señales → GISBA → recomendación */
+.final-gisba-cta-visual { display: grid; grid-template-columns: minmax(0, .8fr) auto minmax(0, 1.25fr); align-items: center; gap: 0; }
+.final-gisba-cta-visual .fg-signals { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; }
+.final-gisba-cta-visual .fg-link { width: 28px; height: 2px; background: linear-gradient(90deg, #C9BBFF, #5B2CFF); }
+.final-gisba-cta-visual .fg-analyzed-title, .final-gisba-cta-visual .fg-analyzed { display: none; }
+@media (max-width: 980px) and (min-width: 521px) { .final-gisba-cta-visual { max-width: 720px; margin: 0 auto; width: 100%; } }
+@media (max-width: 520px) {
+  .final-gisba-cta-visual { grid-template-columns: minmax(0, 1fr); justify-items: center; }
+  .final-gisba-cta-visual .fg-signals { grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; }
+  .final-gisba-cta-visual .fg-link { width: 2px; height: 20px; background: linear-gradient(#C9BBFF, #5B2CFF); }
+}
+.final-gisba-cta-visual { grid-template-columns: minmax(0, .8fr) 26px 62px 26px minmax(0, 1.25fr); justify-items: stretch; }
+.final-gisba-cta-visual .fg-node { justify-self: center; }
+@media (min-width: 981px) and (max-width: 1180px) { .final-gisba-cta-grid { grid-template-columns: minmax(0, 40fr) minmax(0, 60fr); gap: 32px; } .final-gisba-cta-visual { grid-template-columns: minmax(0, .8fr) 16px 54px 16px minmax(0, 1.3fr); } .final-gisba-cta-visual .fg-node { width: 54px; height: 54px; } .final-gisba-cta-visual .fg-link { width: 16px; } .fg-panel { padding: 16px; } }
+@media (max-width: 520px) { .final-gisba-cta-visual { grid-template-columns: minmax(0, 1fr); justify-items: center; } .final-gisba-cta-visual .fg-signals { grid-template-columns: repeat(3, minmax(0, 1fr)); width: 100%; } .final-gisba-cta-visual .fg-link { width: 2px; height: 20px; background: linear-gradient(#C9BBFF, #5B2CFF); } .final-gisba-cta-visual .fg-panel { width: 100%; } }
